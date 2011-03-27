@@ -1,3 +1,4 @@
+<!-- Available Single Entry -->
 <tr style="background-image:url(templates/{$template}/images/tbl-lite.png);">
 	<td>
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
