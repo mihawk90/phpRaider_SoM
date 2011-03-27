@@ -6,7 +6,8 @@
 		<title>phpRaider</title>
 		{menu_init css="$site_url/templates/$template/style/menu.css"}
 		<link rel="stylesheet" type="text/css" href="{$site_url}/templates/{$template}/style/stylesheet.css">
-        <link rel="stylesheet" type="text/css" href="{$site_url}/templates/{$template}/style/ajax.css">
+		<link rel="stylesheet" type="text/css" href="{$site_url}/templates/{$template}/style/ajax.css">
+		<link rel="stylesheet" type="text/css" href="{$site_url}//templates/{$template}/style/jquery/jquery-ui.css">
 		{$javascript}
 	</head>
 	<body>
@@ -26,10 +27,10 @@
 				</tr>
 		  </table>
 		</div>
-<br>
-<table border="0" align="center" cellpadding="0" cellspacing="0">
-<tr>
+		<br>
+		<table border="0" align="center" cellpadding="0" cellspacing="0">
+			<tr>
 				<td>{menu data=$menu}</td>
 			</tr>
 		</table>
-<br>
+		<br>
