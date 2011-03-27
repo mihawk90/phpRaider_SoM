@@ -5,8 +5,8 @@ $pLang = array();
 // GENERIC LOCALIZATIONS
 $pLang['add_comment'] = 'Click to add a comment';
 $pLang['ago'] = 'ago';
-$pLang['approve'] = 'Confirmed';
-$pLang['approve_signup'] = 'Click to confirm';
+$pLang['approve'] = 'Available';
+$pLang['approve_signup'] = 'Click to make available';
 $pLang['away'] = 'away';
 $pLang['cancel'] = 'Not available';
 $pLang['cancel_signup'] = 'Click to make not available';
@@ -27,14 +27,13 @@ $pLang['invalidOption'] = 'Task not available to selected module.';
 $pLang['invalid_login'] = 'The username/password you entered was not correct';
 $pLang['lostPassword'] = 'Lost password?';
 $pLang['move_signup'] = 'Click to change user role';
-$pLang['change_character'] = 'Click to change user character/role';
 $pLang['none'] = 'None';
 $pLang['no_data'] = 'No data';
 $pLang['no_icons'] = 'No icons';
 $pLang['no_matches'] = 'No matches';
 $pLang['no_signup'] = 'You can not signup for this raid';
-$pLang['queue'] = 'Available';
-$pLang['queue_signup'] = 'Click to mark as available';
+$pLang['queue'] = 'In queue';
+$pLang['queue_signup'] = 'Click to place in queue';
 $pLang['remove'] = 'Remove';
 $pLang['search'] = 'Search';
 $pLang['select'] = 'Select';
@@ -43,8 +42,8 @@ $pLang['signup_allowed'] = 'Click here to signup for this raid';
 $pLang['signup_cancel'] = 'You are marked as not available';
 $pLang['signup_done'] = 'Processing signup, please wait...';
 $pLang['signup_frozen'] = 'Signups are frozen';
-$pLang['signup_queue'] = 'You are available for a confirmed slot';
-$pLang['signup_signed'] = 'You are marked as confirmed';
+$pLang['signup_queue'] = 'You are in the queue for an available slot';
+$pLang['signup_signed'] = 'You are marked as available';
 $pLang['subclasses'] = 'Subclass(es)';
 $pLang['user_details'] = 'User details';
 $pLang['userLogged'] = 'Welcome back <strong>%s</strong>, <a href="%s">logout</a>?';
@@ -134,8 +133,6 @@ $pLang['moduleTitle'] = 'Module error!';
 $pLang['offlineTitle'] = 'Site temporarily offline';
 $pLang['offlineMessage'] = 'This site is temporarily offline for maintenance. Please try back later';
 $pLang['offlineMode'] = 'Site is offline and inaccesible to regular users!';
-$pLang['authenticationTitle'] = 'Authentication error!';
-$pLang['authenticationNoModuleError'] = 'No authentication method choosen, please try to reinstall and set an authentication method.';
 
 // MENU ITEMS
 // main menu items
@@ -169,6 +166,7 @@ $pLang['maRaid_templates'] = 'Templates';
 $pLang['mcAnnouncement'] = 'Announcement';
 $pLang['mcCharacter'] = 'Character';
 $pLang['mcRaid'] = 'Raid';
+$pLang['luaout'] = 'Lua Output';
 
 // ANNOUNCEMENTS
 $pLang['aCreate'] = 'Create new';
@@ -194,7 +192,6 @@ $pLang['atShow_text'] = 'Show in reports';
 $pLang['atHover_text'] = 'Show on name hover';
 $pLang['atNumeric_text'] = 'Numeric';
 $pLang['atText_text'] = 'Text';
-$pLang['atNumeric_error_text'] = '%s must be a number.';
 
 // BACKUPS
 $pLang['baHeader'] = 'Database Backups';
@@ -217,7 +214,7 @@ $pLang['chAddClass_text'] = '[+]';
 $pLang['chName_error'] = 'Name must be entered';
 $pLang['chRace_error'] = 'Race must be selected';
 $pLang['chClass_error'] = 'Class must be selected';
-$pLang['chLevel_error'] = 'Level must be an integer between configured values';
+$pLang['chLevel_error'] = 'Level must be entered';
 $pLang['chExists_error'] = 'Character name already exists';
 
 // CLASSES
@@ -265,16 +262,14 @@ $pLang['coSiAdmin_text'] = 'Admin name';
 $pLang['coSiAdminEmail_text'] = 'Admin email';
 $pLang['coSiUrl_text'] = 'Site URL';
 $pLang['coMiAnon_text'] = 'Allow anonymous visitors';
-$pLang['coMiQueue_text'] = 'Disallow signup as Confirmed';
+$pLang['coMiQueue_text'] = 'Auto queue signups';
 $pLang['coMiDebug_text'] = 'Enable debugging';
 $pLang['coMiDefaultGroup_text'] = 'Default join group';
 $pLang['coMiDisable_text'] = 'Disable site';
-$pLang['coMiDisableRegistration_text'] = 'Disable registration';
 $pLang['coMiFreeze_text'] = 'Disable freezes';
 $pLang['coMiReport_text'] = 'Maximum report size';
 $pLang['coLocal_text'] = 'local time';
 $pLang['coUpdate'] = '<font color="red">The latest version of phpRaider is <a href="%s">%s.%s.%s</a> and you are running version %s.%s.%s.</font>';
-$pLang['coUpdateUndetermined'] = 'Unable to determine latest version, please check <a href="%s">www.phpRaider.com</a>.';
 $pLang['coGamesWritable'] = '<font color="lime">The <strong>games/</strong> directory is writable.</font>';
 $pLang['coGamesNotWritable'] = '<font color="red">The <strong>games/</strong> directory is NOT writable.</font>';
 $pLang['coGamesZipDisabled'] = 'ZIP support is not enabled!';
@@ -290,14 +285,6 @@ $pLang['coGamesManualInstall'] = '<ol><li>Unzip the game package to your compute
 $pLang['coInstallGame_header'] = 'Install new game';
 $pLang['coInstallGameFileName_text'] = 'Choose game file';
 $pLang['coInstallGame_error'] = 'Game file failed to install properly.';
-$pLang['coInstallGame_error_upload']['unknown'] = 'Unknown upload error.';
-$pLang['coInstallGame_error_upload'][UPLOAD_ERR_INI_SIZE] = 'The uploaded file exceeds the upload_max_filesize directive (%s) in php.ini.';
-$pLang['coInstallGame_error_upload'][UPLOAD_ERR_FORM_SIZE] = 'The uploaded file exceeds the MAX_FILE_SIZE directive (%s) that was specified in the HTML form.';
-$pLang['coInstallGame_error_upload'][UPLOAD_ERR_PARTIAL] = 'The uploaded file was only partially uploaded.';
-$pLang['coInstallGame_error_upload'][UPLOAD_ERR_NO_FILE] = 'No file was uploaded.';
-$pLang['coInstallGame_error_upload'][UPLOAD_ERR_NO_TMP_DIR] = 'Missing or PHP can\'t access temporary upload folder \'%s\'.';
-$pLang['coInstallGame_error_upload'][UPLOAD_ERR_CANT_WRITE] = 'PHP failed to write file to disk \'%s\'.';
-$pLang['coInstallGame_error_upload'][UPLOAD_ERR_EXTENSION] = 'File upload stopped by extension.';
 
 // DELETE
 $pLang['dHeader'] = 'Confirm deletion';
@@ -526,7 +513,6 @@ $pLang['siSignup_type'] = 'Signup as';
 $pLang['siSignup_role'] = 'Select role';
 $pLang['siNoChar'] = 'No characters within raid level limits';
 $pLang['siNoRoles'] = 'No roles available';
-$pLang['siSignedUpByComment'] = 'Signed up by %s';
 
 // TEMPLATES
 $pLang['tHeader'] = 'Raid templates';
@@ -535,8 +521,8 @@ $pLang['tHeader'] = 'Raid templates';
 $pLang['viSignupText'] = 'Status';
 $pLang['viSignupLogin'] = 'Login to signup!';
 $pLang['viHeader'] = 'Viewing details for %s';
-$pLang['viApproved'] = 'Confirmed';
-$pLang['viQueued'] = 'Available';
+$pLang['viApproved'] = 'Available';
+$pLang['viQueued'] = 'Queued';
 $pLang['viCancelled'] = 'Not Available';
 $pLang['viDescription'] = 'Description';
 $pLang['viLeader'] = 'Leader';
@@ -549,14 +535,8 @@ $pLang['viRaid_starts_day'] = 'This raid starts in one day, %s hours, and %s min
 $pLang['viRaid_starts'] = 'This raid starts in %s hours and %s minutes';
 $pLang['viRaid_started'] = 'The start time for this raid has passed!';
 $pLang['viSignup'] = 'Signup for this raid';
-$pLang['viMax_count'] = 'Total available';
-$pLang['viApproved_count'] = 'Confirmed';
-$pLang['viQueued_count'] = 'Available';
+$pLang['viMax_count'] = 'Total';
+$pLang['viApproved_count'] = 'Approved';
+$pLang['viQueued_count'] = 'Queued';
 $pLang['viCancelled_count'] = 'Not available';
-$pLang['viSignupOtherText'] = 'Signup other';
-
-// CALENDAR
-$pLang['calDayNames'] = array('Sun','Mon','Tue','Wed','Thu','Fri','Sat');
-$pLang['calMonthNames'] = array('January','February','March','April','May','Jun','July','August','September','October','November','December');
-
 ?>
