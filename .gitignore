@@ -1,4 +1,5 @@
 
+/games/*/
 /templates_c
 /cache
 configuration.php
