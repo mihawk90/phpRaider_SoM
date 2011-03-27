@@ -336,7 +336,8 @@ if(empty($task) || $task == '') {
 										'maximum_level' => $_POST['maximum_level'],
 										'minimum_level' => $_POST['minimum_level'],
 										'icon_name' => $_POST['icon_name'],
-										'profile_id' => $pMain->getProfileID()
+										'profile_id' => $pMain->getProfileID(),
+										'raid_create_time' => time()
 									);
 					$db_raid->set_query('insert', $sql, __FILE__, __LINE__);
 					$raid_id = $db_raid->sql_nextid();
