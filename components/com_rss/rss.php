@@ -46,29 +46,35 @@ if(empty($task) || $task == '') {
 
 	// rss feed for raids
 	$pConfig['site_url'] .= ((substr($pConfig['site_url'],-1, 1)=='/')?'':'/');
-	$output = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
-	$output .= "<rss version=\"2.0\">\n<channel>";
+	$output =
+"<?xml version=\"1.0\" encoding=\"utf-8\"?>";
+	$output .= "
+<rss version=\"2.0\">
+	<channel>";
 //	$output .= "<title>phpRaider ".$pLang['rssRaidsFor']." ".$pConfig['game']."</title>\n
-	$output .= "<title>Sword of Mana - phpRaider</title>\n
-				<description>phpRaider Raider for Sword of Mana</description>\n
-				<link>".$pConfig['site_url']."</link>\n
-				<lastBuildDate>".date(DATE_RFC2822,gmmktime())."</lastBuildDate>\n
-				<language>en-us</language>\n";
+	$output .= "
+		<title>Sword of Mana - phpRaider</title>
+		<description>phpRaider Raider for Sword of Mana</description>
+		<link>".$pConfig['site_url']."</link>
+		<lastBuildDate>".date(DATE_RFC2822,gmmktime())."</lastBuildDate>
+		<language>en-us</language>";
 
 	// loop through each RSS item
 	while($data = $db_raid->fetch()) {
-		$output .= "<item>
-					<title>".utf8_encode(htmlspecialchars($data['location']." - ".newDate($pConfig['date_format'], $data['invite_time'],0)." @ ".newDate($pConfig['time_format'], $data['invite_time'],0)))."</title>
-					<link>".$pConfig['site_url']."index.php?option=com_view&amp;id=".$data['raid_id']."</link>
-					<guid>".$data['raid_id']."</guid>
-					<author>".$data['raid_leader']."</author>
-					<pubDate>".newDate(DATE_RFC2822, $data['raid_create_time'],0)."</pubDate>
-					<description>".utf8_encode(htmlspecialchars(nl2br($data['description'])))."</description>
-					</item>\n";
+		$output .= "
+		<item>
+			<title>".utf8_encode(htmlspecialchars($data['location']." - ".newDate($pConfig['date_format'], $data['invite_time'],0)." @ ".newDate($pConfig['time_format'], $data['invite_time'],0)))."</title>
+			<link>".$pConfig['site_url']."index.php?option=com_view&amp;id=".$data['raid_id']."</link>
+			<guid>".$data['raid_id']."</guid>
+			<author>".$data['raid_leader']."</author>
+			<pubDate>".newDate(DATE_RFC2822, $data['raid_create_time'],0)."</pubDate>
+			<description>".utf8_encode(htmlspecialchars(nl2br($data['description'])))."</description>
+		</item>";
 	}
 
-	$output .= "</channel>
-			   </rss>";
+	$output .= "
+	</channel>
+</rss>";
 
 	header("Content-Length: " .strlen($output));
 	header('Content-type: text/xml; charset=UTF-8');
