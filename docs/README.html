@@ -1,0 +1,113 @@
+<!-- header.tpl -->
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>phpRaider</title>
+		<link rel="stylesheet" type="text/css" href="../templates/default/style/stylesheet.css">
+	</head>
+	<body>
+	<div align="center">
+		<div id="bodyContainer">
+		<div style="text-align:left">
+			<table width="100%">
+				<tr valign="top">
+				  <td width="50%"><div align="left"><img src="../templates/default/images/phpRaider_logo.png" border="0" alt="phpRaider - Raid management made easy!"></div></td>
+					<td width="50%">
+				  </td>
+				</tr>
+		  </table>
+		</div><br>
+		<!-- content goes here-->
+		<div class="contentHeader">Requirements</div>
+		<div style="text-align:left">
+			phpRaider requires a web server (IIS, Apache, etc), a MySQL database (4.1 or higher),
+			PHP (4.0 or higher), and a minimal knowledge of software installation
+		</div><br>
+		<div class="contentHeader">Installing phpRaider</div>
+		<div style="text-align:left">
+			Installing phpRaider is meant to be an easy process. Follow the steps below for a quick
+			and easy way to get up and running in no time.
+
+			<ol>
+				<li>
+					Download the latest version of phpRaider, available at
+					<a href="http://www.phpraider.com/">http://www.phpraider.com/</a>.
+				</li>
+				<li>
+					Unzip the file locally and upload the files to your webserver OR upload the
+					archive to your server and unpack them there. Be sure to keep the directory
+					structure intact!
+				</li>
+				<li>
+					Start the installation process by pointing your browser to http://www.yourdomain.com/phpraider.
+					Give the folders <b>cache/</b>, and <b>templates_c</b> write permissions.
+					You must also give write permissions to the <b>configuration.php</b> file. If this file
+					does not exist create an empty file named configuration.php and give it write permissions.<br>
+					For safety reasons, you should remove the write permissions to configuration.php and the phpRaider folder after the installation.<br>
+
+					Aftewards, you should see something similar to the following:
+					<div style="text-align:center"><img src="images/readme/install_step_1.jpg"></div><br>
+				</li>
+				<li>
+					Click continue, read the license information and on the next step choose "Fresh Installation."
+					The rest of the install process is automated with minimal user input.
+				</li>
+				<li>
+					Once installation completes, be sure to remove the <b>install/</b> directory as
+					leaving it intact is a <b>serious security risk</b>!
+				</li>
+			</ol>
+		</div><br>
+		<div class="contentHeader">Upgrading phpRaider</div>
+		<div style="text-align:left">
+			Upgrading phpRaider is nearly identical to a fresh installation. It is recommended that
+			you completely remove any previous installations leaving the <b>configuration.php</b> file
+			and <b>games/</b> folder in place before uploading the new archive. Failure to do so may
+			result in unforseen complications. Afterwards, follow the installation steps but choose "Upgrade"
+			on step 4.
+			If you're not running 1.0.7b or 1.0.8, then due to a known bug in the old 1.0.7 installation/upgrade, 
+			it's recomended that you run an upgrade	from 1.0.6 in this installation.
+		</div><br>
+		<div class="contentHeader">Configuring phpRaider</div>
+		<div style="text-align:left">
+			After installing phpRaider it is important that you complete the phpRaider configuration.
+			You can access this via the Administer -> Configuration menu.
+		</div><br>
+		<div class="contentHeader">Installing a game package</div>
+		<div style="text-align:left">
+			Before you can create a raid you will need to install a game package. Game packages can
+			be found on the <a href="http://www.phpraider.com">phpRaider downloads</a> sections of
+			the phpRaider website. After downloading a game file you can install it via two methods.
+			<ol>
+				<li>
+					Go to Administer -> Configuration and choose install game. Hit browse to select
+					the game package and submit to install the package. Then, choose the game from the
+					game dropdown menu and hit submit to save the configuration.
+				</li>
+				<li>
+					If the above fails to work, you must manually install the game package. Unzip the
+					game package to your computer and you will notice the game folder and an install.sql
+					file. Upload the folder to your server under the phpraider/games/ folder and then
+					run the install.sql file on your database using phpMyAdmin or another form of database
+					management. Afterwards, go to the configuration screen (Administer -> Configuration)
+					and select the game from the game dropdown menu and hit submit to save the configuration.
+				</li>
+			</ol>
+		</div><br>
+		<!-- end content -->
+		<br /><br /><table width="100%" cellpadding="3" cellspacing="0" border="0">
+			<tr>
+				<div align="center" >
+					Powered by <a href="http://www.phpraider.com/">phpRaider</a><br />
+					© 2005-2010 <a href="mailto:SpiffyJr@gmail.com?subject=phpRaider">Kyle Spraggs</a>. All Rights Reserved.<br /><br />
+				</div>
+				<div align="center">
+					<a href="index.php?option=com_rss"><img src="../templates/default/images/icons/icon_rss.png" border="0" /></a>
+					<a href="http://www.php.net/"><img src="../templates/default/images/icons/icon_php.png" border="0" /> </a>
+					<a href="http://www.mysql.com/"><img src="../templates/default/images/icons/icon_mysql.png" border="0" /></a>
+				</div>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
