@@ -136,7 +136,13 @@ function signupForm($data, $pMain, $redirect = null, $showComment = true, $showO
 			while($role_data = $db_raid->sql_fetchrow($role_result)) {
 				$roles[$role_data['role_id']] = $role_data['role_name'];
 			}
-			$showApprove = (!$pConfig['auto_queue']) || ($pMain->getProfileID() == getProfileFromTable('raid', 'raid_id', $data['raid_id'])) || $pMain->checkPerm('edit_subscriptions_any') || ($pMain->checkPerm('edit_subscriptions_own'));
+			
+			if ((!$pConfig['auto_queue']) ||								// "Disallow signup as Confirmed" in Config; true -> disallowed, false -> allowed
+			    ($pMain->getProfileID() == getProfileFromTable('raid', 'raid_id', $data['raid_id'])) ||	// Own raid?
+			    ($pMain->checkPerm('edit_subscriptions_any'))						// raidlead/admin
+			    /*|| ($pMain->checkPerm('edit_subscriptions_own'))*/ // edit_subscriptions_own makes no sense, they would be able to signup as confirmed anyway...
+			   )
+			{ $showApprove = true; } else { $showApprove = false; }
 		}
 	}
 	$div_id = $data['raid_id'];
@@ -378,7 +384,7 @@ function getSignup($raidId, $cancel = 0, $queue = 0, $num, $order = 'timestamp')
 			($isRaidOwner ||
 			$pMain->checkPerm('edit_subscriptions_any') ||
 			(!$isFrozen &&
-			(($isCharOwner && ($pMain->checkPerm('edit_subscriptions_own') ||  $pConfig['auto_queue'] == 0) && ($role_available[$data['role_id']]<$role_limit[$data['role_id']])))))) {
+			(($isCharOwner && (/*$pMain->checkPerm('edit_subscriptions_own') ||*/  $pConfig['auto_queue'] == 0) && ($role_available[$data['role_id']]<$role_limit[$data['role_id']])))))) {
 			$approve_img = '<a href="index.php?option=com_view&amp;task=manage&amp;type=approve&amp;id='. $raidId.'&amp;char_id='.$data['character_id'].'" onMouseover="ddrivetip(\''.$pLang['approve_signup'].'\');" onMouseout="hideddrivetip()"><img src="templates/'.$pConfig['template'].'/images/icons/icon_signed_up.png" height="11" width="11" border="0" alt="'.$pLang['approve_signup'].'"></a>';
 		}
 
