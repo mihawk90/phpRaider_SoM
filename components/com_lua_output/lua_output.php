@@ -111,10 +111,11 @@ class Output_Data
 		
 		global $out, $db_raid;
 		$lua_version = "250";
-		$out .= "<b>Beginning LUA output</b><br>";
+		$out .= "<h2>Beginning LUA output</h2>";
 		
 		// open/create file
-		$file = fopen('./raid_lua/phpRaid_Data.lua','w');
+		$file_loc = './cache/phpRaid_Data.lua';
+		$file     = fopen($file_loc,'w');
 		
 		
 		// base output
@@ -334,32 +335,23 @@ class Output_Data
 		// end - add data to lua output
 		
 		// write to file
-		fwrite($file,utf8_encode($lua_output));
-		
-		// output to textarea
-
-		$out .= 'LUA file created.</b><br>';
-		$out .= 'Download <a href="./raid_lua/phpRaid_Data.lua">phpRaid_Data.lua</a> and save it to [wow-dir]\interface\addons\phpraidviewer\<br>';
+		if (fwrite($file,utf8_encode($lua_output))) {
+			// output to textarea
+			$out .= "<b>LUA file created.</b><br>";
+			$out .= "Download <a href=\"$file_loc\"><b>phpRaid_Data.lua</b></a> and save it to [wow-dir]\interface\addons\phpraidviewer\>";
+		} else {
+			$out .= "LUA file could <u>NOT</u> be created!";	// output if for some reason the file could not be created
+		}
 	
 			
 	}
 //Macro Output
 
 		function Output_Macro()
-	{
+		{
 		
 		global $out,$db_raid,$pConfig_db_prefix, $macro_output, $pConfig_time_format, $pConfig_dst, $pConfig_timezone;
-	
-	
-		
-		$macro_output .= "<b>Beginning Macro output</b><br>";
-		
-
-			
-		
-	
-	
-		
+		$macro_output .= "<h2>Beginning Macro output</h2>";
 		// parse result
 		$count = 0;
 	$sql["SELECT"] = "*";
@@ -370,7 +362,7 @@ class Output_Data
 		while($raid_data = $db_raid->sql_fetchrow($raids))
 		{
 		
-			$macro_output .= "<br><Br><br>location = {$raid_data['location']}<br><br><br>\n";
+			$macro_output .= "<h3>{$raid_data['location']} - " . date('d.m.y @ H:i',$raid_data['start_time']) . "</h3>\n";
 		
 		
 			// sql string for signups
@@ -402,7 +394,7 @@ class Output_Data
 			
 			foreach($macsign as $char)
 			{						
-				$macro_output .= "/invite {$char['name']}<br>";			
+				$macro_output .= "/i {$char['name']}<br>";			
 			}
 					
 		}
