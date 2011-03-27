@@ -103,7 +103,7 @@ if(empty($task) || $task == '') {
 	$order = ((empty($_GET['sort']))?'timestamp':$_GET['sort']);
 	$approved = getSignup($id, 0, 0, 4, $order);
 	$cancel = getSignup($id, 1, 0, 1, $order);
-	$queue = getSignup($id, 0, 1, 3, $order);
+	$queue = getSignup($id, 0, 1, 4, $order);
 
 	// assign the variables and display the information
 	$p->assign('approved_signups', $approved);
