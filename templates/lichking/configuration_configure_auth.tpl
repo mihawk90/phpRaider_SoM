@@ -1,0 +1,1 @@
+<div class="contentBody">{$output}</div>

@@ -1,0 +1,365 @@
+/******************************
+* PHPRAID includeD CSS STYLES *
+******************************/
+
+/*
+WoWRaider TEMPLATE BY FRAZER DAVES
+
+/*
+
+/* General page style. */
+body {
+	color:#999999;
+	background-color:#000000;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	background-image: url(../images/bg.jpg);
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+
+hr {
+}
+
+/* The text input fields background colour */
+/* And all button looks */
+input.post, textarea.post, select {
+	border: 1px solid #000000;
+	background-color:#ffffff;
+}
+
+input { text-indent : 2px; font-size: 11px; }
+
+/* main submit button */
+input.mainoption {
+	font-weight: bolder;
+}
+
+/* secondary submit button (usually a reset) */
+input.liteoption {
+}
+
+/* Formatting for the hover tooltips */
+#dhtmltooltip{
+	position: absolute;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:10px;
+	text-align:left;
+	border: 1px solid #308d99;
+	padding: 3px;
+	background-image: url(../images/role_lite.png);
+	visibility: hidden;
+	z-index: 100;
+	color: white;
+}
+
+.contentHeader {
+	background-image:url(../images/tbl.png);
+	padding: 10px;
+	text-align:left;
+	color: #308d99;
+	font-weight: bolder;
+}
+
+.contentBody {
+	background-image:url(../images/tbl.png);
+	font-size: 11px;
+	padding: 10px;
+	text-align: left;
+}
+.subcontentHeader {
+	background-image:url(../images/tbl.png);
+	padding: 5px;
+	text-align:center;
+	color: #308d99;
+	font-weight: bolder;
+}
+.contentRaid {
+	background-image:url(../images/role_lite.png);
+	padding: 10px;
+	text-align: left;
+}
+
+/* border color for data */
+.dataOutline {
+	
+	font-size:11px;
+}
+
+.errorHeader {
+	background-color: #FF9194;
+	border: 1px solid #ff0000;
+	font-weight:bolder;
+	padding:5px;
+	text-align:left;
+	width: 600px;
+}
+
+.errorBody {
+	background-color:#FFCACB;
+	border: 1px solid #ff0000;
+	border-top:0px;
+	padding:5px;
+	text-align:center;
+	width: 600px;
+}
+
+.errorBody li {
+	text-align:left;
+}
+
+/* header for data output */
+.listHeader {
+	background-image: url(../images/role_lite.png);
+}
+
+.listHeader A:link,a:visited,a:active,a:hover {
+	color:#308d99;
+}
+
+/* row colors for data output and hover color */
+.row1 {
+	background-image: url(../images/row1.png);
+}
+
+.row2 {
+	background-image: url(../images/row2.png);
+}
+
+.rowHover {
+	background-image: url(../images/hover.png);
+}
+
+.name_class {
+	font-size:11px;
+	font-weight:bold;
+	vertical-align: top
+}
+
+.field_class {
+}
+
+.button {
+	text-align:center;
+}
+
+/* calendar CSS */
+.calendarHeader {
+	
+	font-size:11px;
+	font-weight:bolder;
+	text-align:center;
+}
+
+.datepicker {
+	padding:3px;
+	text-align:center;
+}
+
+.month {
+	background-image:url(../images/tbl.png);
+	padding:0px;
+}
+
+.dayname {
+	font-size:11px;
+	font-weight:bolder;
+	padding: 5px;
+	background-image: url(../images/role_lite.png);
+	border: 1px solid #333C4F;
+	text-align: center;
+}
+
+.datepickerform {
+	font-size:11px;
+}
+
+.monthnavigation {
+	font-size:11px;
+}
+
+.nomonthday {
+	background-image: url(../images/tbl.png);
+	width:104px;
+	height:104px;
+}
+
+.monthday {
+	background-image: url(../images/monthday.png);
+	border: 1px solid #000000;
+	font-size:11px;
+	height:103px;
+	vertical-align:top;
+	width:103px;
+	color: #FFFFFF;
+}
+
+.saturday {
+	background-image: url(../images/monthday.png);
+	border: 1px solid #000000;
+	font-size:11px;
+	height:103px;
+	vertical-align:top;
+	width:103px;
+	color: #FFFFFF;
+}
+
+.sunday {
+	background-image: url(../images/monthday.png);
+	border: 1px solid #000000;
+	font-size:11px;
+	height:103px;
+	vertical-align:top;
+	width:103px;
+	color: #FFFFFF;
+}
+
+.today {
+	background-image: url(../images/today.png);
+	border:1px solid #2f71ae;
+	font-size:11px;
+	height:103px;
+	vertical-align:top;
+	width:103px;
+	color: #FFFFFF;
+}
+
+.eventcontent {
+	font-size:11px;
+	vertical-align:top;
+	width:100%;
+}
+/**********************
+* TEMPLATE CSS STYLES *
+***********************/
+#bodyContainer {
+	border:1px solid #001827;
+	padding:15px;
+	margin: 5px;
+	width:770px;
+	background-image: url(../images/tbl.png);
+}
+
+.footer {
+	background-color:#eeeeee;
+	border: 1px solid #000000;
+	padding: 5px;
+}
+
+.suckertreemenu ul{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.approvedSignups {
+	background-color:#eeeeee;
+	border:1px solid #000000;
+	font-weight:bold;
+	padding:3px;
+	text-align:left;
+}
+
+.queuedSignups {
+	border:1px solid #00FF00;
+	background-color:#BFFFBF;
+	font-weight:bold;
+	padding:3px;
+	text-align:left;
+
+}
+
+.cancelledSignups {
+	border:1px solid #FF0000;
+	background-color:#FFCACB;
+	font-weight:bold;
+	padding:3px;
+	text-align:left;
+}
+
+.announcementOutline {
+	font-size:11px;
+}
+
+.announcementHeader {
+	background-image:url(../images/tbl-lite.png);
+	padding: 5px;
+}
+
+.announcementMessage {
+}
+
+.announcementPoster {
+	font-size:10px;
+	font-style:italic;
+	text-align:right;
+}
+
+.announcementActions {
+	background-color:#ffffff;
+}
+
+tr {
+	font-size:11px;
+}
+
+.formError {
+	background-color:#FF0000;
+	border: 1px dashed #000000;
+	color:#ffffff;
+	font-weight:bold;
+	padding:3px;
+	text-align:center;
+}
+
+.viewTimestamp {
+	font-size:9px;
+}
+
+.popup {
+	position: absolute;
+	display: none;
+	text-align: left;
+	padding: 5px;
+}
+
+.popupBack {
+	background-image: url(../images/role_lite.png);
+	border: 1px solid #000000;
+}
+
+td.label { text-align: right; }
+
+.raidcontent {
+	background-image:url(../images/tbl-lite.png);
+	padding: 5px;
+	text-align:left;
+	color: #308d99;
+}
+.leader {
+	color: #FF0000;
+	font-weight: bold;
+}
+.rolehead {
+	background-image:url(../images/role_lite.png);
+	padding: 5px;
+	text-align:left;
+	color: #308d99;
+	font-weight: bold;
+	width: 160px;
+}
+
+/* need to be at the bottom */
+a:link,a:active,a:visited {
+	color:#308d99;
+	text-decoration:none;
+}
+
+a:hover {
+	color:#93D3DD;
+}
+
+.information {
+	font-size:9px;
+	font-style:italic;
+}
