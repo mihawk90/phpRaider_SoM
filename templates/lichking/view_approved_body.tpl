@@ -4,7 +4,7 @@
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 		  <tr>
 			<td width="15%" valign="top"><div align="left">{$class_img}</div></td>
-			<td width="60%" valign="top"><div align="left" style="color:{$class_color}"><strong>{$char_name}</strong></div></td>
+			<td width="60%" valign="top"><div align="left"><strong>{$char_name}</strong></div></td>
 			<td width="25%">
 				<div align="right">
 					{$queue_img}
