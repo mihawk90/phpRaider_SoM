@@ -6,7 +6,7 @@
 					<div align="left">{$class_img}<br></div>
 				</td>
 				<td width="60%" valign="top">
-					<div align="left" style="color:{$class_color}"><strong>{$char_name}<br></strong></div>
+					<div align="left"><strong>{$char_name}<br></strong></div>
 				</td>
 				<td width="25%">
 					<div align="right">

@@ -452,7 +452,10 @@ function getSignup($raidId, $cancel = 0, $queue = 0, $num, $order = 'timestamp')
 		} else {
 			$char_name = $data['char_name'];
 		}
-
+		
+		$class_color	= ((preg_match('/^[0-9a-f]{6}$/i',$data['class_color'])?'#':'')).$data['class_color'];
+		$char_name	= "<a href=\"" . str_replace("%character_name%", $char_name, $pConfig['armory']) . "\" style=\"color:".$class_color."\">" . $char_name . "</a>";
+		
 		$temp_array = array(
 			'timestamp' => newDate($pConfig['date_format'], $data['timestamp'], $pConfig['timezone'] + $pConfig['dst'])
 							.' @ '.newDate($pConfig['time_format'], $data['timestamp'], $pConfig['timezone'] + $pConfig['dst']),
@@ -460,7 +463,7 @@ function getSignup($raidId, $cancel = 0, $queue = 0, $num, $order = 'timestamp')
 			'char_id' => $data['character_id'],
 			'comments' => $comments,
 			'body_color' => ((preg_match('/^[0-9a-f]{6}$/i',$data['body_color'])?'#':'')).$data['body_color'],
-			'class_color' => ((preg_match('/^[0-9a-f]{6}$/i',$data['class_color'])?'#':'')).$data['class_color'],
+			'class_color' => $class_color,
 			'role_name' => $data['role_name'],
 			'approve_img' => $approve_img,
 			'cancel_img' => $cancel_img,

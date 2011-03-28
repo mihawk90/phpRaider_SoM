@@ -93,10 +93,13 @@ function getCharacterData($pMain, $profile_id = '') {
 		else
 			$tooltip = 'onMouseover="ddrivetip(\''.$tooltip.'\');" onMouseout="hideddrivetip();"';
 
+		$char_name = $data['char_name'];
+		$char_name	= "<a href=\"" . str_replace("%character_name%", $char_name, $pConfig['armory']) . "\"" . $tooltip . ">" . $char_name . "</a>";
+
 		$name = '<a href="index.php?option=com_roster&id='.$data['character_id'].'">
 				<img src="templates/'.$pConfig['template'].'/images/icons/icon_user_details.png" border="0"
 				onMouseover="ddrivetip(\''.$pLang['character_details'].'\');" onMouseout="hideddrivetip();">
-				</a>  <a '.$tooltip.'>'.$data['char_name'].'</a>';
+				</a>' . $char_name;
 
 		// setup array for data output
 		$merge2 = array(
