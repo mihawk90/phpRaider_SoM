@@ -46,40 +46,39 @@ if(empty($task) || $task == '') {
 
 	// rss feed for raids
 	$pConfig['site_url'] .= ((substr($pConfig['site_url'],-1, 1)=='/')?'':'/');
-	$output =
-"<?xml version=\"1.0\" encoding=\"utf-8\"?>";
-	$output .= "
-<rss version=\"2.0\">
-	<channel>";
-//	$output .= "<title>phpRaider ".$pLang['rssRaidsFor']." ".$pConfig['game']."</title>\n
-	$output .= "
-		<title>Sword of Mana - phpRaider</title>
-		<description>phpRaider Raider for Sword of Mana</description>
-		<link>".$pConfig['site_url']."</link>
-		<lastBuildDate>".date(DATE_RFC2822,gmmktime())."</lastBuildDate>
-		<language>en-us</language>";
-
+	
 	// loop through each RSS item
+	$rss_items	= "";
 	while($data = $db_raid->fetch()) {
-		$output .= "
-		<item>
-			<title>".utf8_encode(htmlspecialchars($data['location']." - ".newDate($pConfig['date_format'], $data['invite_time'],0)." @ ".newDate($pConfig['time_format'], $data['invite_time'],0)))."</title>
-			<link>".$pConfig['site_url']."index.php?option=com_view&amp;id=".$data['raid_id']."</link>
-			<guid>".$data['raid_id']."</guid>
-			<author>".$data['raid_leader']."</author>
-			<pubDate>".newDate(DATE_RFC2822, $data['raid_create_time'],0)."</pubDate>
-			<description>".utf8_encode(htmlspecialchars(nl2br($data['description'])))."</description>
-		</item>";
+		$rss_items .= "\t<item>\n";
+		$rss_items .= "\t\t<title>".utf8_encode(htmlspecialchars($data['location']))." - ".newDate($pConfig['date_format'], $data['invite_time'],0)." @ ".newDate($pConfig['time_format'], $data['invite_time'],0)."</title>\n";
+		$rss_items .= "\t\t<link>".$pConfig['site_url']."index.php?option=com_view&amp;id=".$data['raid_id']."</link>\n";
+		$rss_items .= "\t\t<guid>".$data['raid_id']."</guid>\n";
+		$rss_items .= "\t\t<author>".$data['raid_leader']."</author>\n";
+		$rss_items .= "\t\t<pubDate>".newDate(DATE_RFC2822, $data['raid_create_time'],0)."</pubDate>\n";
+		$rss_items .= "\t\t<description>".utf8_encode(htmlspecialchars(nl2br($data['description'])))."</description>\n";
+		$rss_items .= "\t</item>\n";
 	}
 
-	$output .= "
-	</channel>
-</rss>";
+	// assign variables for template
+	$p->assign(
+		array(
+			'rss_items'		=> $rss_items,
+			'rss_link'		=> $pConfig['site_url'],
+			'rss_lastBuildDate' 	=> date(DATE_RFC2822,gmmktime()),
+		)
+	);
 
-	header("Content-Length: " .strlen($output));
+	// parse template
+	$rss_tpl_file 	= RAIDER_TEMPLATE_BASE_PATH.'_general_templates'.DIRECTORY_SEPARATOR.'rss_feed.tpl';
+	$p->display($rss_tpl_file);
+
+	// generate data for header
+	echo strlen($rss_tpl_file);
+	header("Content-Length: " .strlen($rss_items) + strlen($rss_tpl_file));
 	header('Content-type: text/xml; charset=UTF-8');
 
-	echo $output;
+//	echo $output;
 } else if ($task == 'announcements') {
 	// do not load footer
 	$load_footer = 0;
