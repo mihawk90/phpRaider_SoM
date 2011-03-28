@@ -24,9 +24,10 @@ if(empty($task) || $task == '') {
 	$report->allowPaging(true, $_SERVER['PHP_SELF'].'?option='.$option.'&amp;Base=');
 	$report->setListRange((empty($_GET['Base'])?'0':$_GET['Base']), $pConfig['report_max']);
 	$report->allowLink(ALLOW_HOVER_INDEX, '', array());
-	!isset($_GET['Sort'])?:($_GET['Sort']="name");
-	!isset($_GET['SortDescending'])?:($_GET['SortDescending']=1);
-	$report->allowSort(true, $_GET['Sort'], $_GET['SortDescending'], 'index.php?option='.$option);
+	// get rid of undefined Index
+	!isset($_GET['Sort'])?$sort="name":$sort=$_GET['Sort'];
+	!isset($_GET['SortDescending'])?$sort_desc=1:$sort_desc=$_GET['SortDescending'];
+	$report->allowSort(true, $sort, $sort_desc, 'index.php?option='.$option);
 
 	// setup column headers
 	$report->addOutputColumn('name', $pLang['name'], null, 'left', null, '__NOLINK__');
