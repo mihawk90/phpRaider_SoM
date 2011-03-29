@@ -337,7 +337,7 @@ if(empty($task) || $task == '') {
 				// setup variables not submitted by form
 				$sql['INSERT'] = 'character';
 				$sql['VALUES'] = array(
-									'char_name' => $_POST['char_name'],
+									'char_name' => ucfirst(strtolower($_POST['char_name'])),
 									'race_id' => $_POST['race_id'],
 									'class_id' => $_POST['class_id'],
 									'guild_id' => $_POST['guild_id'],
@@ -365,7 +365,7 @@ if(empty($task) || $task == '') {
 			} else {
 				$sql['UPDATE'] = 'character';
 				$sql['VALUES'] = array(
-									'char_name' => $_POST['char_name'],
+									'char_name' => ucfirst(strtolower($_POST['char_name'])),
 									'race_id' => $_POST['race_id'],
 									'class_id' => $_POST['class_id'],
 									'guild_id' => $_POST['guild_id'],
